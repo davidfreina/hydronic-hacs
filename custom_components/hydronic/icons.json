@@ -1,0 +1,174 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "ash_removal": {
+        "default": "mdi:delete-empty"
+      },
+      "auxiliary_input": {
+        "default": "mdi:import"
+      },
+      "burnback_flap_closed": {
+        "default": "mdi:valve-closed"
+      },
+      "burnback_flap_open": {
+        "default": "mdi:valve"
+      },
+      "discharge_limit_switch": {
+        "default": "mdi:electric-switch"
+      },
+      "discharge_screw": {
+        "default": "mdi:screw-lag"
+      },
+      "feed_screw_release": {
+        "default": "mdi:screw-lag"
+      },
+      "grate_cleaning": {
+        "default": "mdi:broom"
+      },
+      "grate_closed": {
+        "default": "mdi:grid"
+      },
+      "heat_exchanger_cleaning": {
+        "default": "mdi:broom"
+      },
+      "hopper_screw": {
+        "default": "mdi:screw-lag"
+      },
+      "ignition_fan": {
+        "default": "mdi:fan"
+      },
+      "ignition_heater": {
+        "default": "mdi:fire"
+      },
+      "pellet_suction": {
+        "default": "mdi:vacuum"
+      },
+      "solenoid_valve": {
+        "default": "mdi:valve"
+      }
+    },
+    "number": {
+      "circuit_external_flow_setpoint": {
+        "default": "mdi:thermometer-chevron-up"
+      },
+      "delta_t_setpoint": {
+        "default": "mdi:thermometer-chevron-down"
+      },
+      "setpoint": {
+        "default": "mdi:valve"
+      }
+    },
+    "select": {
+      "buffer_mode": {
+        "default": "mdi:storage-tank"
+      },
+      "bus_fail_action": {
+        "default": "mdi:lan-disconnect"
+      },
+      "circuit_mode": {
+        "default": "mdi:radiator"
+      },
+      "delta_t_limitation": {
+        "default": "mdi:thermometer-chevron-down"
+      },
+      "override_control": {
+        "default": "mdi:valve"
+      },
+      "quick_select": {
+        "default": "mdi:home-thermometer"
+      },
+      "solar_mode": {
+        "default": "mdi:solar-power-variant"
+      }
+    },
+    "sensor": {
+      "boiler_state": {
+        "default": "mdi:fire"
+      },
+      "circuit_mixer": {
+        "default": "mdi:valve",
+        "state": {
+          "closing": "mdi:arrow-collapse-horizontal",
+          "opening": "mdi:arrow-expand-horizontal"
+        }
+      },
+      "co2": {
+        "default": "mdi:molecule-co2"
+      },
+      "co2_setpoint": {
+        "default": "mdi:molecule-co2"
+      },
+      "delta_t_manager_status": {
+        "default": "mdi:thermometer-auto"
+      },
+      "error": {
+        "default": "mdi:alert-circle-outline"
+      },
+      "fan_speed": {
+        "default": "mdi:fan"
+      },
+      "fan_speed_setpoint": {
+        "default": "mdi:fan"
+      },
+      "fault_status": {
+        "default": "mdi:alert-outline"
+      },
+      "feed_activity": {
+        "default": "mdi:screw-lag"
+      },
+      "fuel_consumption": {
+        "default": "mdi:grain"
+      },
+      "grate_activity": {
+        "default": "mdi:grid"
+      },
+      "induced_draught_fan": {
+        "default": "mdi:fan"
+      },
+      "keepalive": {
+        "default": "mdi:heart-pulse"
+      },
+      "mixer_runtime": {
+        "default": "mdi:timer-outline"
+      },
+      "mixer_runtime_target": {
+        "default": "mdi:timer-cog-outline"
+      },
+      "output": {
+        "default": "mdi:gauge-full"
+      },
+      "oxygen": {
+        "default": "mdi:gas-cylinder"
+      },
+      "oxygen_setpoint": {
+        "default": "mdi:gas-cylinder"
+      },
+      "relative_position": {
+        "default": "mdi:valve"
+      },
+      "return_mixer": {
+        "default": "mdi:valve"
+      },
+      "secondary_air_flap": {
+        "default": "mdi:valve"
+      }
+    },
+    "switch": {
+      "circuit_enabled": {
+        "default": "mdi:radiator",
+        "state": {
+          "off": "mdi:radiator-off"
+        }
+      },
+      "circuit_external_control": {
+        "default": "mdi:remote"
+      },
+      "external_keepalive": {
+        "default": "mdi:heart-pulse",
+        "state": {
+          "off": "mdi:heart-off"
+        }
+      }
+    }
+  }
+}

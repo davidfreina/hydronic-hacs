@@ -1,0 +1,50 @@
+# serializer version: 1
+# name: test_diagnostics
+  dict({
+    'failed': dict({
+    }),
+    'fast_components': list([
+    ]),
+    'model': 'belimo_energy_valve',
+    'raw': dict({
+      'holding': dict({
+        '0': 6550,
+        '1': 0,
+        '10': 0,
+        '108': 2,
+        '13': 4210,
+        '147': 1,
+        '157': 0,
+        '158': 0,
+        '179': 1,
+        '180': 2,
+        '19': 4550,
+        '21': 3020,
+        '23': 1530,
+        '33': 12345,
+        '34': 0,
+        '39': 1000,
+        '4': 6312,
+        '59': 61400,
+        '60': 47,
+        '71': 33229,
+        '72': 1,
+        '9': 1234,
+      }),
+    }),
+    'read_error': None,
+    'readings_components': list([
+      'position',
+      'temperatures',
+      'power',
+      'meters',
+      'status',
+    ]),
+    'settings_components': list([
+      'control',
+      'bus_fail',
+      'delta_t_manager',
+      'units',
+    ]),
+  })
+# ---

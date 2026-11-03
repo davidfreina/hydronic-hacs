@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Copy the hydronic-modbus device library into the integration.
+#
+#   scripts/vendor ../hydronic-modbus
+#
+# The library's own imports are all relative, so it works unchanged as
+# custom_components.hydronic.hydronic_modbus. Its tests stay in its own
+# repository; this repository only runs the integration's.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+source="${1:?usage: scripts/vendor <path to a hydronic-modbus checkout>}"
+target="custom_components/hydronic/hydronic_modbus"
+
+rm -rf "${target}"
+cp -r "${source}/src/hydronic_modbus" "${target}"
+find "${target}" -name __pycache__ -prune -exec rm -rf {} +
+
+revision="$(git -C "${source}" describe --tags --always --dirty 2>/dev/null || echo unknown)"
+echo "Vendored hydronic-modbus ${revision} into ${target}"

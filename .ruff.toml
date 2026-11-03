@@ -1,0 +1,42 @@
+# The contents of this file is based on https://github.com/home-assistant/core/blob/dev/pyproject.toml
+
+target-version = "py314"
+
+# The vendored device library is linted in its own repository, under its own rules.
+extend-exclude = ["custom_components/hydronic/hydronic_modbus"]
+
+[lint]
+select = [
+    "ALL",
+]
+
+ignore = [
+    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed
+    "D203", # no-blank-line-before-class (incompatible with formatter)
+    "D212", # multi-line-summary-first-line (incompatible with formatter)
+    "COM812", # incompatible with formatter
+    "ISC001", # incompatible with formatter
+    "ARG001", # Home Assistant calls platform setup with a fixed signature
+    "ARG002", # the same, for flow steps and entity methods
+    "D401", # docstrings name things ("The coordinator a component belongs to")
+    "PLR0913", # entity-description builders take one keyword per field
+]
+
+[lint.flake8-pytest-style]
+fixture-parentheses = false
+
+[lint.pyupgrade]
+keep-runtime-typing = true
+
+[lint.mccabe]
+max-complexity = 25
+
+[lint.per-file-ignores]
+"tests/**" = [
+    "S101",    # assert is how pytest asserts
+    "PLR2004", # magic values are the expected readings
+    "SLF001",  # tests reach into internals
+    "ARG001",  # fixtures requested for their side effects
+    "FBT001",  # parametrized booleans
+    "ARG005",  # stand-ins mirror the signature of what they replace
+]

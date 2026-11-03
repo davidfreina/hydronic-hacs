@@ -1,0 +1,600 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured",
+      "reconfigure_successful": "Re-configuration was successful"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect: {error}",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "reconfigure_serial": {
+        "data": {
+          "baudrate": "Baud rate",
+          "device": "Serial port",
+          "unit_id": "Modbus unit ID"
+        },
+        "data_description": {
+          "baudrate": "The speed of the RS485 bus, as set on the device.",
+          "device": "The serial port the device's RS485 bus is wired to. Ports shared over the network by a serial proxy, such as an ESPHome device, are listed here alongside the local ones.",
+          "unit_id": "The device's Modbus unit ID, also called its Modbus device address."
+        },
+        "description": "Reach this device over a serial port wired to its RS485 terminals."
+      },
+      "reconfigure_tcp": {
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "unit_id": "Modbus unit ID"
+        },
+        "data_description": {
+          "host": "The hostname or IP address of the device, or of the Modbus TCP gateway it's connected through.",
+          "port": "The Modbus TCP port to connect on.",
+          "unit_id": "The device's Modbus unit ID, also called its Modbus device address."
+        },
+        "description": "Reach this device over the network, either directly or through a Modbus TCP gateway."
+      },
+      "serial": {
+        "data": {
+          "baudrate": "Baud rate",
+          "device": "Serial port",
+          "model": "Device",
+          "unit_id": "Modbus unit ID"
+        },
+        "data_description": {
+          "baudrate": "The speed of the RS485 bus, as set on the device.",
+          "device": "The serial port the device's RS485 bus is wired to. Ports shared over the network by a serial proxy, such as an ESPHome device, are listed here alongside the local ones.",
+          "model": "Which device is on the other end. Its register map can't be detected, so pick it here.",
+          "unit_id": "The device's Modbus unit ID, also called its Modbus device address."
+        },
+        "description": "Set up a device wired to a serial port over RS485."
+      },
+      "tcp": {
+        "data": {
+          "host": "Host",
+          "model": "Device",
+          "port": "Port",
+          "unit_id": "Modbus unit ID"
+        },
+        "data_description": {
+          "host": "The hostname or IP address of the device, or of the Modbus TCP gateway it's connected through.",
+          "model": "Which device is on the other end. Its register map can't be detected, so pick it here.",
+          "port": "The Modbus TCP port to connect on.",
+          "unit_id": "The device's Modbus unit ID, also called its Modbus device address."
+        },
+        "description": "Set up a device reached over the network, either directly or through a Modbus TCP gateway."
+      },
+      "user": {
+        "description": "A hydronic device can be set up in Home Assistant in two different ways.\n\nYou can reach it over the network, which covers devices that speak Modbus TCP and Modbus TCP gateways, or over a serial port its RS485 terminals are wired to.",
+        "menu_options": {
+          "serial": "Serial port (Modbus RTU)",
+          "tcp": "Network (Modbus TCP)"
+        }
+      }
+    }
+  },
+  "device": {
+    "buffer": {
+      "name": "Buffer"
+    },
+    "heating_circuit": {
+      "name": "Heating circuit {number}"
+    },
+    "solar": {
+      "name": "Solar"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "alarm_output": {
+        "name": "Alarm output"
+      },
+      "ash_door": {
+        "name": "Ash door"
+      },
+      "ash_removal": {
+        "name": "Ash removal"
+      },
+      "ash_removal_monitoring": {
+        "name": "Ash removal monitoring"
+      },
+      "auxiliary_input": {
+        "name": "Auxiliary input"
+      },
+      "burnback_flap": {
+        "name": "Burnback flap"
+      },
+      "burnback_flap_closed": {
+        "name": "Burnback flap closed"
+      },
+      "burnback_flap_open": {
+        "name": "Open burnback flap"
+      },
+      "central_ash_removal": {
+        "name": "Central ash removal fault"
+      },
+      "charging_pump": {
+        "name": "Charging pump"
+      },
+      "circulation_pump": {
+        "name": "Circulation pump"
+      },
+      "discharge_limit_switch": {
+        "name": "Discharge limit switch"
+      },
+      "discharge_motor_protection": {
+        "name": "Discharge motor protection"
+      },
+      "discharge_screw": {
+        "name": "Discharge screw"
+      },
+      "electric_heater": {
+        "name": "Electric heater"
+      },
+      "feed_screw_release": {
+        "name": "Feed screw release"
+      },
+      "grate_cleaning": {
+        "name": "Grate cleaning"
+      },
+      "grate_closed": {
+        "name": "Grate closed"
+      },
+      "heat_exchanger_cleaning": {
+        "name": "Heat exchanger cleaning"
+      },
+      "heat_exchanger_monitoring": {
+        "name": "Heat exchanger monitoring"
+      },
+      "hopper_empty": {
+        "name": "Hopper empty"
+      },
+      "hopper_screw": {
+        "name": "Hopper screw"
+      },
+      "ignition_fan": {
+        "name": "Ignition fan"
+      },
+      "ignition_heater": {
+        "name": "Ignition heater"
+      },
+      "lambda_heating": {
+        "name": "Lambda probe heating"
+      },
+      "malfunction_actuator_cannot_move": {
+        "name": "Actuator cannot move"
+      },
+      "malfunction_body_temperature_error": {
+        "name": "Valve body temperature error"
+      },
+      "malfunction_bus_watchdog_triggered": {
+        "name": "Bus watchdog triggered"
+      },
+      "malfunction_differential_pressure_not_reached": {
+        "name": "Differential pressure setpoint not reached"
+      },
+      "malfunction_end_of_life": {
+        "name": "Device end of life reached"
+      },
+      "malfunction_flow_exceeds_nominal": {
+        "name": "Flow exceeds nominal flow"
+      },
+      "malfunction_flow_measurement_error": {
+        "name": "Flow measurement error"
+      },
+      "malfunction_flow_setpoint_not_reached": {
+        "name": "Flow setpoint not reached"
+      },
+      "malfunction_flow_with_closed_valve": {
+        "name": "Flow with closed valve"
+      },
+      "malfunction_freeze_warning": {
+        "name": "Freeze warning"
+      },
+      "malfunction_gear_disengaged": {
+        "name": "Gear train disengaged"
+      },
+      "malfunction_glycol_detected": {
+        "name": "Glycol detected"
+      },
+      "malfunction_minimum_position_applied": {
+        "name": "Minimum position applied"
+      },
+      "malfunction_no_actuator_communication": {
+        "name": "No communication to actuator"
+      },
+      "malfunction_no_differential_pressure": {
+        "name": "No differential pressure detected"
+      },
+      "malfunction_power_setpoint_not_reached": {
+        "name": "Power setpoint not reached"
+      },
+      "malfunction_remote_temperature_error": {
+        "name": "Remote temperature error"
+      },
+      "malfunction_reverse_flow": {
+        "name": "Reverse flow"
+      },
+      "malfunction_sensor_communication_interrupted": {
+        "name": "Communication to sensor interrupted"
+      },
+      "operating_signal": {
+        "name": "Operating signal"
+      },
+      "overtemperature_input": {
+        "name": "Overtemperature input"
+      },
+      "overtemperature_output": {
+        "name": "Overtemperature output"
+      },
+      "pellet_suction": {
+        "name": "Pellet suction / stirrer / feed grate"
+      },
+      "pump": {
+        "name": "Pump"
+      },
+      "return_pump": {
+        "name": "Return pump"
+      },
+      "safety_temperature_limiter": {
+        "name": "Safety temperature limiter"
+      },
+      "solar_pump": {
+        "name": "Collector pump"
+      },
+      "solenoid_valve": {
+        "name": "Solenoid valve"
+      },
+      "suction_flap": {
+        "name": "Suction flap"
+      },
+      "system_stop": {
+        "name": "System stop"
+      }
+    },
+    "number": {
+      "circuit_external_flow_setpoint": {
+        "name": "External flow setpoint"
+      },
+      "delta_t_setpoint": {
+        "name": "Delta T setpoint"
+      },
+      "setpoint": {
+        "name": "Setpoint"
+      }
+    },
+    "select": {
+      "buffer_mode": {
+        "name": "Mode",
+        "state": {
+          "automatic_electric_heater": "Automatic electric heater",
+          "automatic_heat_distribution": "Automatic by heat distribution",
+          "automatic_outdoor_temperature": "Automatic by outdoor temperature",
+          "automatic_summer": "Automatic summer",
+          "automatic_winter": "Automatic winter",
+          "manual": "Manual",
+          "off": "Off"
+        }
+      },
+      "bus_fail_action": {
+        "name": "Bus fail action",
+        "state": {
+          "close": "Close",
+          "maximum": "Maximum",
+          "minimum": "Minimum",
+          "none": "None",
+          "open": "Open"
+        }
+      },
+      "circuit_mode": {
+        "name": "Mode",
+        "state": {
+          "automatic_1": "Automatic 1",
+          "automatic_2": "Automatic 2",
+          "continuous_heating": "Continuous heating",
+          "frost_protection": "Frost protection",
+          "manual": "Manual",
+          "off": "Off",
+          "party": "Party",
+          "setback": "Setback"
+        }
+      },
+      "delta_t_limitation": {
+        "name": "Delta T limitation",
+        "state": {
+          "disabled": "Disabled",
+          "dt_manager": "Delta T manager",
+          "dt_manager_scaling": "Delta T manager with scaling"
+        }
+      },
+      "override_control": {
+        "name": "Override control",
+        "state": {
+          "close": "Close",
+          "maximum_flow": "Maximum flow",
+          "minimum_flow": "Minimum flow",
+          "motor_stop": "Motor stop",
+          "nominal_flow": "Nominal flow",
+          "none": "None",
+          "open": "Open"
+        }
+      },
+      "quick_select": {
+        "name": "Quick select",
+        "state": {
+          "absent": "Absent",
+          "summer": "Summer",
+          "user_defined_1": "User-defined 1",
+          "user_defined_2": "User-defined 2",
+          "winter": "Winter"
+        }
+      },
+      "solar_mode": {
+        "name": "Mode",
+        "state": {
+          "automatic": "Automatic",
+          "manual": "Manual",
+          "off": "Off"
+        }
+      }
+    },
+    "sensor": {
+      "body_temperature": {
+        "name": "Valve body temperature (T2)"
+      },
+      "boiler_state": {
+        "name": "Boiler state",
+        "state": {
+          "after_reset": "After reset",
+          "burner_cleaning": "Burner cleaning",
+          "burnout": "Burnout",
+          "chimney_sweep": "Chimney sweep",
+          "cold_start": "Cold start",
+          "heating_off": "Heating off",
+          "ignition": "Ignition",
+          "ignition_preparation": "Preparing ignition",
+          "kindling": "Kindling",
+          "lambda_calibration": "Lambda calibration",
+          "modulating": "Modulating",
+          "pre_ventilation": "Pre-ventilation",
+          "ramp_up": "Ramp-up",
+          "ready": "Ready",
+          "reheating": "Reheating",
+          "restart": "Restart",
+          "suction": "Suction",
+          "waiting": "Waiting",
+          "warm_start": "Warm start"
+        }
+      },
+      "boiler_temperature": {
+        "name": "Boiler temperature"
+      },
+      "buffer_bottom_temperature": {
+        "name": "Bottom"
+      },
+      "buffer_middle_temperature": {
+        "name": "Middle"
+      },
+      "buffer_setpoint": {
+        "name": "Setpoint"
+      },
+      "buffer_top_1_temperature": {
+        "name": "Top 1"
+      },
+      "buffer_top_temperature": {
+        "name": "Top"
+      },
+      "circuit_mixer": {
+        "name": "Mixer",
+        "state": {
+          "closing": "Closing",
+          "idle": "Idle",
+          "opening": "Opening"
+        }
+      },
+      "circulation_temperature": {
+        "name": "Circulation"
+      },
+      "co2": {
+        "name": "Carbon dioxide"
+      },
+      "co2_setpoint": {
+        "name": "Carbon dioxide setpoint"
+      },
+      "collector_return_temperature": {
+        "name": "Return"
+      },
+      "collector_temperature": {
+        "name": "Collector"
+      },
+      "combustion_chamber_temperature": {
+        "name": "Combustion chamber temperature"
+      },
+      "delta_t": {
+        "name": "Delta T"
+      },
+      "delta_t_manager_status": {
+        "name": "Delta T manager status",
+        "state": {
+          "active": "Active",
+          "not_selected": "Not selected",
+          "scaling_active": "Scaling active",
+          "scaling_standby": "Scaling standby",
+          "standby": "Standby"
+        }
+      },
+      "demand_temperature": {
+        "name": "Demand temperature"
+      },
+      "draught": {
+        "name": "Draught"
+      },
+      "draught_setpoint": {
+        "name": "Draught setpoint"
+      },
+      "error": {
+        "name": "Error {slot}"
+      },
+      "fan_speed": {
+        "name": "Fan speed"
+      },
+      "fan_speed_setpoint": {
+        "name": "Fan speed setpoint"
+      },
+      "fault_status": {
+        "name": "Fault status",
+        "state": {
+          "error": "Error",
+          "information": "Information",
+          "none": "None",
+          "warning": "Warning"
+        }
+      },
+      "feed_activity": {
+        "name": "Feed activity"
+      },
+      "flow": {
+        "name": "Flow"
+      },
+      "flow_setpoint": {
+        "name": "Flow setpoint"
+      },
+      "flow_temperature": {
+        "name": "Flow temperature"
+      },
+      "flue_gas_temperature": {
+        "name": "Flue gas temperature"
+      },
+      "fuel_consumption": {
+        "name": "Fuel consumption"
+      },
+      "grate_activity": {
+        "name": "Grate activity"
+      },
+      "heating_energy": {
+        "name": "Heating energy"
+      },
+      "heating_power": {
+        "name": "Heating power"
+      },
+      "hours_boiler_runtime": {
+        "name": "Boiler runtime"
+      },
+      "hours_full_load": {
+        "name": "Full load hours"
+      },
+      "hours_ignition_and_burnout": {
+        "name": "Ignition and burnout hours"
+      },
+      "hours_modulating": {
+        "name": "Modulating hours"
+      },
+      "hours_part_load": {
+        "name": "Part load hours"
+      },
+      "hours_total": {
+        "name": "Total operating hours"
+      },
+      "induced_draught_fan": {
+        "name": "Induced draught fan"
+      },
+      "keepalive": {
+        "name": "Keepalive counter"
+      },
+      "mixer_runtime": {
+        "name": "Mixer runtime"
+      },
+      "mixer_runtime_target": {
+        "name": "Mixer runtime target"
+      },
+      "outdoor_temperature": {
+        "name": "Outdoor temperature"
+      },
+      "output": {
+        "name": "Output"
+      },
+      "oxygen": {
+        "name": "Residual oxygen"
+      },
+      "oxygen_setpoint": {
+        "name": "Residual oxygen setpoint"
+      },
+      "relative_position": {
+        "name": "Valve position"
+      },
+      "remote_temperature": {
+        "name": "Remote temperature (T1)"
+      },
+      "return_mixer": {
+        "name": "Return mixer",
+        "state": {
+          "closing": "Closing",
+          "idle": "Idle",
+          "opening": "Opening"
+        }
+      },
+      "return_setpoint": {
+        "name": "Return setpoint"
+      },
+      "return_temperature": {
+        "name": "Return temperature"
+      },
+      "secondary_air_flap": {
+        "name": "Secondary air flap"
+      },
+      "secondary_flow_temperature": {
+        "name": "Secondary flow temperature"
+      },
+      "sensor_1_temperature": {
+        "name": "Sensor 1 temperature"
+      },
+      "solar_power": {
+        "name": "Power"
+      },
+      "solar_storage_temperature": {
+        "name": "Storage"
+      },
+      "stoker_temperature": {
+        "name": "Stoker temperature"
+      },
+      "tap_temperature": {
+        "name": "Tap temperature"
+      }
+    },
+    "switch": {
+      "circuit_enabled": {
+        "name": "Release"
+      },
+      "circuit_external_control": {
+        "name": "External control (GLT)"
+      },
+      "external_keepalive": {
+        "name": "External keep-alive"
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_value": {
+      "message": "{value} is not a value the device accepts here."
+    },
+    "modbus_error": {
+      "message": "Error communicating with the device."
+    },
+    "no_component_answered": {
+      "message": "No component answered."
+    },
+    "write_failed": {
+      "message": "Failed to write to the device."
+    }
+  },
+  "selector": {
+    "model": {
+      "options": {
+        "belimo_energy_valve": "Belimo Energy Valve 4",
+        "eco_controller": "ENERGIEFREUND ECO Regulation",
+        "herz_pelletstar": "HERZ pelletstar"
+      }
+    }
+  }
+}
