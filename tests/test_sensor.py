@@ -18,6 +18,10 @@ from pytest_homeassistant_custom_component.common import (
 from custom_components.hydronic.binary_sensor import _flag_set
 from custom_components.hydronic.const import CONF_MODEL, DOMAIN
 from custom_components.hydronic.hydronic_modbus import DeviceModel, create_device
+from custom_components.hydronic.hydronic_modbus.eco.messages import (
+    CIRCUIT_WARNINGS,
+    message_text,
+)
 from custom_components.hydronic.hydronic_modbus.herz import InputByte1
 from custom_components.hydronic.sensor import (
     SENSOR_DESCRIPTIONS,
@@ -173,6 +177,38 @@ async def test_boiler_errors_use_its_texts(hass: HomeAssistant) -> None:
     assert hass.states.get("sensor.herz_pelletstar_error_1").state == "STB"
     assert hass.states.get("sensor.herz_pelletstar_error_2").state == "217"
     assert hass.states.get("sensor.herz_pelletstar_error_3").state == "OK"
+
+
+async def test_eco_messages_use_their_texts(hass: HomeAssistant) -> None:
+    """Test the eco's codes show as texts, follow changes, and skip a refusal."""
+    entry = await _setup(hass, DeviceModel.ECO_CONTROLLER, [Platform.SENSOR])
+    assert (
+        hass.states.get("sensor.heating_circuit_1_warning").state
+        == "Anfahrentlastung aktiv"
+    )
+    assert hass.states.get("sensor.heating_circuit_1_alarm").state == "OK"
+    assert hass.states.get("sensor.solar_warning").state == "Code 99"
+    # circuit 2 refuses its message registers, so it has no message sensors
+    assert hass.states.get("sensor.heating_circuit_2_warning") is None
+
+    unit = entry.runtime_data.device.modbus_unit
+    unit.holding[2130] = int32_words(2)  # circuit 1 alarm -> outdoor sensor missing
+    unit.holding[2132] = int32_words(0)
+    await entry.runtime_data.readings.async_refresh()
+    await hass.async_block_till_done()
+    assert (
+        hass.states.get("sensor.heating_circuit_1_alarm").state
+        == "Außentemperatur nicht angeschlossen"
+    )
+    assert hass.states.get("sensor.heating_circuit_1_warning").state == "OK"
+
+
+def test_message_text() -> None:
+    """Test a code's text: OK for none, the code itself where none is known."""
+    assert message_text(CIRCUIT_WARNINGS, 0) == "OK"
+    assert message_text(CIRCUIT_WARNINGS, 2) == "Anfahrentlastung aktiv"
+    assert message_text(CIRCUIT_WARNINGS, 42) == "Code 42"
+    assert message_text(CIRCUIT_WARNINGS, None) is None
 
 
 def test_values_before_the_first_read_are_unknown() -> None:

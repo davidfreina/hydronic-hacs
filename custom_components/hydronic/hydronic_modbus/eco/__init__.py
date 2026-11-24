@@ -9,6 +9,7 @@ from .device import (
     HEATING_CIRCUITS,
     EcoController,
     circuit_control_name,
+    circuit_messages_name,
     circuit_mixer_name,
     circuit_mixer_runtime_name,
     circuit_mode_name,
@@ -31,6 +32,13 @@ from .heating_circuit import (
     HeatingCircuitSecondary,
     circuit_base,
 )
+from .messages import (
+    BufferMessages,
+    CircuitMessages,
+    GeneralAlarms,
+    SolarMessages,
+    message_text,
+)
 from .solar import Solar, SolarMode
 from .storage import Buffer, BufferMode
 from .system import ExternalKeepAlive, QuickSelect, System
@@ -38,11 +46,14 @@ from .system import ExternalKeepAlive, QuickSelect, System
 __all__ = [
     "HEATING_CIRCUITS",
     "Buffer",
+    "BufferMessages",
     "BufferMode",
     "BufferOperatingMode",
+    "CircuitMessages",
     "CircuitOperatingMode",
     "EcoController",
     "ExternalKeepAlive",
+    "GeneralAlarms",
     "HeatingCircuit",
     "HeatingCircuitControl",
     "HeatingCircuitMixer",
@@ -53,14 +64,17 @@ __all__ = [
     "QuickSelect",
     "QuickSelectMode",
     "Solar",
+    "SolarMessages",
     "SolarMode",
     "SolarOperatingMode",
     "System",
     "circuit_base",
     "circuit_control_name",
+    "circuit_messages_name",
     "circuit_mixer_name",
     "circuit_mixer_runtime_name",
     "circuit_mode_name",
     "circuit_name",
     "circuit_secondary_name",
+    "message_text",
 ]

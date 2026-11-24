@@ -104,3 +104,17 @@ async def test_eco_pumps(hass: HomeAssistant) -> None:
     assert hass.states.get("binary_sensor.solar_collector_pump").state == STATE_OFF
     assert hass.states.get("binary_sensor.heating_circuit_1_pump").state == STATE_ON
     assert hass.states.get("binary_sensor.heating_circuit_3_pump").state == STATE_OFF
+
+
+async def test_eco_general_alarms(hass: HomeAssistant) -> None:
+    """Test the controller-wide fault and warning flags, and that they clear."""
+    entry, unit = await _setup(hass, DeviceModel.ECO_CONTROLLER, seed_eco, "ECO")
+    assert hass.states.get("binary_sensor.eco_general_fault").state == STATE_OFF
+    assert hass.states.get("binary_sensor.eco_general_warning").state == STATE_ON
+
+    unit.holding[2] = int32_words(1)
+    unit.holding[4] = int32_words(0)
+    await entry.runtime_data.readings.async_refresh()
+    await hass.async_block_till_done()
+    assert hass.states.get("binary_sensor.eco_general_fault").state == STATE_ON
+    assert hass.states.get("binary_sensor.eco_general_warning").state == STATE_OFF

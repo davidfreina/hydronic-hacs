@@ -90,6 +90,12 @@ def seed_eco(unit: MockModbusUnit) -> None:
             2322: int32_words(1),  # circuit 3 released
             2324: int32_words(425),  # circuit 3 external setpoint -> 42.5 °C
             2336: int32_words(1),  # circuit 3 under external control
+            4: int32_words(1),  # a warning is pending somewhere
+            2132: int32_words(2),  # circuit 1 warning -> start-up relief
+            2134: int32_words(5),  # circuit 1 information -> no external release
+            2332: int32_words(15),  # circuit 3 warning -> code not in the list
+            1128: int32_words(1),  # storage information -> temperature reached
+            8132: int32_words(99),  # solar warning -> unknown code
             0x1FBE: list(
                 struct.unpack(">HH", struct.pack(">f", 2.5))
             ),  # solar -> 2500 W
@@ -97,6 +103,7 @@ def seed_eco(unit: MockModbusUnit) -> None:
     )
     for base in (2100, 2200):
         unit.fail_read(base + 46, IllegalDataAddressError())
+    unit.fail_read(2230, IllegalDataAddressError())  # circuit 2 has no messages
 
 
 def seed_herz(unit: MockModbusUnit) -> None:

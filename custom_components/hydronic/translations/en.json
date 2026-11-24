@@ -135,6 +135,12 @@
       "feed_screw_release": {
         "name": "Feed screw release"
       },
+      "general_fault": {
+        "name": "General fault"
+      },
+      "general_warning": {
+        "name": "General warning"
+      },
       "grate_cleaning": {
         "name": "Grate cleaning"
       },
@@ -432,6 +438,15 @@
       },
       "draught_setpoint": {
         "name": "Draught setpoint"
+      },
+      "eco_alarm": {
+        "name": "Alarm"
+      },
+      "eco_information": {
+        "name": "Information"
+      },
+      "eco_warning": {
+        "name": "Warning"
       },
       "error": {
         "name": "Error {slot}"

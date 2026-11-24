@@ -18,6 +18,7 @@ from .heating_circuit import (
     HeatingCircuitSecondary,
     circuit_base,
 )
+from .messages import BufferMessages, CircuitMessages, GeneralAlarms, SolarMessages
 from .solar import Solar, SolarMode
 from .storage import Buffer, BufferMode
 from .system import ExternalKeepAlive, QuickSelect, System
@@ -61,6 +62,11 @@ def circuit_secondary_name(number: int) -> str:
     return f"heating_circuit_{number}_secondary"
 
 
+def circuit_messages_name(number: int) -> str:
+    """The attribute heating circuit ``number``'s alarm/warning codes live on."""
+    return f"heating_circuit_{number}_messages"
+
+
 class EcoController(HydronicDevice):
     """An eco heating controller reached through a ``ModbusUnit``.
 
@@ -74,14 +80,26 @@ class EcoController(HydronicDevice):
     Name the circuits with ``heating_circuits`` to skip probing for them.
     Each circuit's components are attributes named by ``circuit_name()``,
     ``circuit_mode_name()``, ``circuit_control_name()``,
-    ``circuit_mixer_name()``, ``circuit_mixer_runtime_name()`` and
-    ``circuit_secondary_name()``, ``None`` where the circuit (or, for the
-    mixer runtimes and the secondary sensor, the reading) is absent. The
-    mixer states are polled with ``async_update_fast()``.
+    ``circuit_mixer_name()``, ``circuit_mixer_runtime_name()``,
+    ``circuit_secondary_name()`` and ``circuit_messages_name()``, ``None``
+    where the circuit (or, for the mixer runtimes, the secondary sensor and
+    the messages, the reading) is absent. The mixer states are polled with
+    ``async_update_fast()``.
+
+    The alarm, warning and information codes (``general_alarms``,
+    ``buffer_messages``, ``solar_messages`` and each circuit's messages) are
+    probed at setup and stay ``None`` where the controller refuses them.
     """
 
     model = DeviceModel.ECO_CONTROLLER
-    READINGS = ("system", "solar", "buffer")
+    READINGS = (
+        "system",
+        "solar",
+        "buffer",
+        "general_alarms",
+        "buffer_messages",
+        "solar_messages",
+    )
     SETTINGS = ("quick_select", "solar_mode", "buffer_mode", "external_keepalive")
 
     def __init__(
@@ -99,6 +117,9 @@ class EcoController(HydronicDevice):
         self.buffer_mode = BufferMode(unit)
         self.solar = Solar(unit)
         self.solar_mode = SolarMode(unit)
+        self.general_alarms: GeneralAlarms | None = GeneralAlarms(unit)
+        self.buffer_messages: BufferMessages | None = BufferMessages(unit)
+        self.solar_messages: SolarMessages | None = SolarMessages(unit)
 
         self._probe_circuits = heating_circuits is None
         self.heating_circuit_numbers: tuple[int, ...] = tuple(
@@ -126,6 +147,7 @@ class EcoController(HydronicDevice):
             )
             setattr(self, circuit_mixer_runtime_name(number), None)
             setattr(self, circuit_secondary_name(number), None)
+            setattr(self, circuit_messages_name(number), None)
 
     def _readings(self) -> tuple[str, ...]:
         return (
@@ -133,6 +155,7 @@ class EcoController(HydronicDevice):
             *(circuit_name(n) for n in self.heating_circuit_numbers),
             *(circuit_mixer_runtime_name(n) for n in self.heating_circuit_numbers),
             *(circuit_secondary_name(n) for n in self.heating_circuit_numbers),
+            *(circuit_messages_name(n) for n in self.heating_circuit_numbers),
         )
 
     def _fast(self) -> tuple[str, ...]:
@@ -185,8 +208,20 @@ class EcoController(HydronicDevice):
         )
         return secondary
 
+    def heating_circuit_messages(self, number: int) -> CircuitMessages | None:
+        """Heating circuit ``number``'s alarm/warning codes, ``None`` if absent."""
+        messages: CircuitMessages | None = getattr(
+            self, circuit_messages_name(number), None
+        )
+        return messages
+
     async def _async_setup(self) -> None:
-        """Settle which heating circuits exist, and which have a second sensor."""
+        """Settle which circuits exist, their second sensors and message codes."""
+        for name in ("general_alarms", "buffer_messages", "solar_messages"):
+            component = getattr(self, name)
+            if component is not None and await read_optional(component) is None:
+                _LOGGER.debug("Controller refuses %s", name)
+                setattr(self, name, None)
         present: list[int] = []
         for number in self.heating_circuit_numbers:
             circuit = self.heating_circuit(number)
@@ -213,6 +248,11 @@ class EcoController(HydronicDevice):
                 and secondary.secondary_flow_temperature is not None
             ):
                 setattr(self, circuit_secondary_name(number), secondary)
+            messages = CircuitMessages(
+                self.modbus_unit, base_offset=circuit_base(number)
+            )
+            if await read_optional(messages) is not None:
+                setattr(self, circuit_messages_name(number), messages)
         _LOGGER.debug(
             "Controller serves heating circuits %s; secondary flow on %s",
             ", ".join(map(str, present)) or "none",

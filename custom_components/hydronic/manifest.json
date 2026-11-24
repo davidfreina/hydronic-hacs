@@ -10,5 +10,5 @@
   "issue_tracker": "https://github.com/davidfreina/hydronic-hacs/issues",
   "loggers": ["custom_components.hydronic.hydronic_modbus", "modbus_connection", "tmodbus"],
   "requirements": ["modbus-connection[tmodbus]>=4.12.4"],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

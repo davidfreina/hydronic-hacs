@@ -38,6 +38,7 @@ from .hydronic_modbus.belimo import DeltaTManagerStatus, FlowUnit
 from .hydronic_modbus.eco import (
     HEATING_CIRCUITS,
     MixerState,
+    circuit_messages_name,
     circuit_mixer_name,
     circuit_mixer_runtime_name,
     circuit_name,
@@ -235,6 +236,28 @@ BELIMO_SENSORS: tuple[HydronicSensorDescription, ...] = (
 )
 
 
+MESSAGE_KINDS = ("alarm", "warning", "information")
+"""The three codes each eco module reports, as sensor keys and translation keys."""
+
+
+def _eco_messages(
+    component: str, key_prefix: str, part: HydronicPart
+) -> tuple[HydronicSensorDescription, ...]:
+    """An eco module's alarm, warning and information, shown as their texts."""
+    return tuple(
+        HydronicSensorDescription(
+            key=f"{key_prefix}_{kind}",
+            models=ECO,
+            component=component,
+            field=f"{kind}_text",
+            part=part,
+            translation_key=f"eco_{kind}",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        )
+        for kind in MESSAGE_KINDS
+    )
+
+
 def _eco_circuit_sensors(number: int) -> tuple[HydronicSensorDescription, ...]:
     """The sensors one of the eco controller's heating circuits has."""
     part = ("heating_circuit", number)
@@ -297,6 +320,7 @@ def _eco_circuit_sensors(number: int) -> tuple[HydronicSensorDescription, ...]:
             translation_key="secondary_flow_temperature",
             part=part,
         ),
+        *_eco_messages(circuit_messages_name(number), component, part),
     )
 
 
@@ -336,6 +360,8 @@ ECO_SENSORS: tuple[HydronicSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
     ),
+    *_eco_messages("buffer_messages", "buffer", BUFFER),
+    *_eco_messages("solar_messages", "solar", SOLAR),
     *(
         description
         for number in HEATING_CIRCUITS

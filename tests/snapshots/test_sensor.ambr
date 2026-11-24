@@ -583,6 +583,56 @@
     'state': '31415.92',
   })
 # ---
+# name: test_all_entities[eco_controller][sensor.buffer_alarm-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.buffer_alarm',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Alarm',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Alarm',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_alarm',
+    'unique_id': '01JECO_CONTROLLER_buffer_alarm',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.buffer_alarm-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Buffer Alarm',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.buffer_alarm',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
+  })
+# ---
 # name: test_all_entities[eco_controller][sensor.buffer_bottom-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
@@ -697,6 +747,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '0',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.buffer_information-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.buffer_information',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Information',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Information',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_information',
+    'unique_id': '01JECO_CONTROLLER_buffer_information',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.buffer_information-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Buffer Information',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.buffer_information',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Speichertemperatur erreicht',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.buffer_middle-entry]
@@ -989,6 +1089,56 @@
     'state': '68',
   })
 # ---
+# name: test_all_entities[eco_controller][sensor.buffer_warning-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.buffer_warning',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Warning',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Warning',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_warning',
+    'unique_id': '01JECO_CONTROLLER_buffer_warning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.buffer_warning-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Buffer Warning',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.buffer_warning',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
+  })
+# ---
 # name: test_all_entities[eco_controller][sensor.eco_controller_keepalive_counter-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
@@ -1095,6 +1245,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '-5.2',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_alarm-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_1_alarm',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Alarm',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Alarm',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_alarm',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_1_alarm',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_alarm-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 1 Alarm',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_1_alarm',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.heating_circuit_1_flow_setpoint-entry]
@@ -1211,6 +1411,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '34.5',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_information-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_1_information',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Information',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Information',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_information',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_1_information',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_information-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 1 Information',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_1_information',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Externe Freigabe nicht vorhanden',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.heating_circuit_1_mixer-entry]
@@ -1447,6 +1697,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '0.0',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_warning-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_1_warning',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Warning',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Warning',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_warning',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_1_warning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_1_warning-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 1 Warning',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_1_warning',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Anfahrentlastung aktiv',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.heating_circuit_2_flow_setpoint-entry]
@@ -1801,6 +2101,56 @@
     'state': '0.0',
   })
 # ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_alarm-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_3_alarm',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Alarm',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Alarm',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_alarm',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_3_alarm',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_alarm-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 3 Alarm',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_3_alarm',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
+  })
+# ---
 # name: test_all_entities[eco_controller][sensor.heating_circuit_3_flow_setpoint-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
@@ -1915,6 +2265,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '41.2',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_information-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_3_information',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Information',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Information',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_information',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_3_information',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_information-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 3 Information',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_3_information',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.heating_circuit_3_mixer-entry]
@@ -2211,6 +2611,106 @@
     'state': '39.8',
   })
 # ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_warning-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.heating_circuit_3_warning',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Warning',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Warning',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_warning',
+    'unique_id': '01JECO_CONTROLLER_heating_circuit_3_warning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.heating_circuit_3_warning-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Heating circuit 3 Warning',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.heating_circuit_3_warning',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Rücklauffühler sekundär nicht angeschlossen',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_alarm-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.solar_alarm',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Alarm',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Alarm',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_alarm',
+    'unique_id': '01JECO_CONTROLLER_solar_alarm',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_alarm-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Solar Alarm',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.solar_alarm',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
+  })
+# ---
 # name: test_all_entities[eco_controller][sensor.solar_collector-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
@@ -2267,6 +2767,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '0',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_information-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.solar_information',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Information',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Information',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_information',
+    'unique_id': '01JECO_CONTROLLER_solar_information',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_information-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Solar Information',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.solar_information',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'OK',
   })
 # ---
 # name: test_all_entities[eco_controller][sensor.solar_power-entry]
@@ -2441,6 +2991,56 @@
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': '0',
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_warning-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.solar_warning',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Warning',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Warning',
+    'platform': 'hydronic',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'eco_warning',
+    'unique_id': '01JECO_CONTROLLER_solar_warning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_all_entities[eco_controller][sensor.solar_warning-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Solar Warning',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.solar_warning',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Code 99',
   })
 # ---
 # name: test_all_entities[herz_pelletstar][sensor.herz_pelletstar_boiler_runtime-entry]

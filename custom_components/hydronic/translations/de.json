@@ -135,6 +135,12 @@
       "feed_screw_release": {
         "name": "Freigabe Einschubschnecke"
       },
+      "general_fault": {
+        "name": "Allgemeine Störung"
+      },
+      "general_warning": {
+        "name": "Allgemeine Warnung"
+      },
       "grate_cleaning": {
         "name": "Rostreinigung"
       },
@@ -432,6 +438,15 @@
       },
       "draught_setpoint": {
         "name": "Unterdruck Soll"
+      },
+      "eco_alarm": {
+        "name": "Alarm"
+      },
+      "eco_information": {
+        "name": "Information"
+      },
+      "eco_warning": {
+        "name": "Warnung"
       },
       "error": {
         "name": "Fehlercode {slot}"

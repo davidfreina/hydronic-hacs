@@ -65,6 +65,16 @@ def _flag_set(
     return value
 
 
+def _non_zero(field: str) -> Callable[[Any], bool | None]:
+    """Whether a code or flag field is anything but 0."""
+
+    def value(component: Any) -> bool | None:
+        code: int | None = getattr(component, field)
+        return None if code is None else code != 0
+
+    return value
+
+
 def _running(field: str) -> Callable[[Any], bool | None]:
     """Whether a pump output is above zero."""
 
@@ -137,6 +147,22 @@ ECO_BINARY_SENSORS: tuple[HydronicBinarySensorDescription, ...] = (
             value_fn=_running("pump"),
         )
         for number in HEATING_CIRCUITS
+    ),
+    HydronicBinarySensorDescription(
+        key="general_fault",
+        models=ECO,
+        component="general_alarms",
+        translation_key="general_fault",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        value_fn=_non_zero("fault"),
+    ),
+    HydronicBinarySensorDescription(
+        key="general_warning",
+        models=ECO,
+        component="general_alarms",
+        translation_key="general_warning",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        value_fn=_non_zero("uncritical"),
     ),
 )
 

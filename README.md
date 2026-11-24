@@ -6,12 +6,12 @@ A Home Assistant integration for hydronic heating devices that speak Modbus:
 | :--- | :--- |
 | **Belimo Energy Valve 4** | Valve position, flow, T1/T2, sensor 1 and ΔT, heating power, heating energy and volume meters, ΔT manager status, one problem sensor per malfunction bit; the setpoint and ΔT setpoint as numbers, the override, bus-fail action and ΔT limitation as selects |
 | **HERZ pelletstar** | Boiler state, boiler, return, flue gas, combustion chamber and stoker temperatures, output, fan, O₂ and CO₂, draught, operating-hour counters, fuel consumption, the collective fault, the error codes as the boiler's own texts, and every input and output as a binary sensor |
-| **ENERGIEFREUND ECO Regulation** | Outdoor, solar, hot water and buffer temperatures, solar power, the pumps; each heating circuit as its own device, with its mixer (state and running times); quick select and every operating mode as selects; external control by a building management system: per circuit the release, the external flow setpoint and the hand-over switch, and an external keep-alive Home Assistant keeps going itself |
+| **ENERGIEFREUND ECO Regulation** | Outdoor, solar, hot water and buffer temperatures, solar power, the pumps; each heating circuit as its own device, with its mixer (state and running times); quick select and every operating mode as selects; external control by a building management system: per circuit the release, the external flow setpoint and the hand-over switch, an external keep-alive Home Assistant keeps going itself; per circuit, buffer and solar the pending alarm, warning and information as text, and the controller-wide fault and warning flags |
 
-This is the custom-component build of an integration headed for Home
-Assistant Core. It ships its device library, hydronic-modbus (not published
-yet), inside the integration, so it installs without the library being
-published first.
+This is a custom integration. Its device library (`hydronic_modbus`, the
+register maps of the supported devices) lives inside the integration under
+`custom_components/hydronic/hydronic_modbus`, so nothing has to be published
+separately.
 
 The integration shares Modbus connections through Home Assistant's own
 `modbus` integration. Two integrations talking to the same gateway use one
@@ -120,5 +120,4 @@ scripts/test      # run the tests
 ```
 
 `scripts/test` needs `requirements_test.txt` installed. The device library is
-vendored: change it in hydronic-modbus and bring it over with
-`scripts/vendor ../hydronic-modbus`.
+part of this repository; change it together with the tests under `tests/`.

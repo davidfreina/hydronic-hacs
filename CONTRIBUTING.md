@@ -46,9 +46,8 @@ People *love* thorough bug reports. I'm not even kidding.
 
 Use [ruff](https://docs.astral.sh/ruff/) (`scripts/lint`) to make sure the code follows the style.
 
-The device library under `custom_components/hydronic/hydronic_modbus` is vendored from
-[hydronic-modbus](https://github.com/davidfreina/hydronic-modbus). Change it there,
-then bring it over with `scripts/vendor`.
+The device library under `custom_components/hydronic/hydronic_modbus` lives in this
+repository; change it here, together with the tests under `tests/`.
 
 ## Test your code modification
 
